@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fitness</title>
+  <link rel="stylesheet" href="./styles/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+   href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+   rel="stylesheet"
+  />
+ </head>
+ <body>
+  <main class="main">
+   <div class="main-wrapper">
+    <div class="main-tabs">
+     <div class="main-tab active" data-tab="bmi">
+      <p class="main-tab-name">BMI</p>
+     </div>
+     <div class="main-tab" data-tab="calories">
+      <p class="main-tab-name">Калории</p>
+     </div>
+    </div>
+    <div class="main-bmi-wrapper active" data-page="bmi">
+     <div class="main-bmi-age-wrapper">
+      <p class="main-bmi-age">Возраст</p>
+      <input type="number" class="main-bmi-age-input" />
+     </div>
+     <div class="main-bmi-sex-wrapper">
+      <div class="main-bmi-sex">
+       <input
+        type="radio"
+        class="main-bmi-sex-input"
+        id="male"
+        value="male"
+        name="sex"
+        checked
+       />
+       <label for="male">Мужчина</label>
+      </div>
+      <div class="main-bmi-sex">
+       <input
+        type="radio"
+        class="main-bmi-sex-input"
+        id="woman"
+        value="woman"
+        name="sex"
+       />
+       <label for="woman">Женщина</label>
+      </div>
+     </div>
+     <div class="main-bmi-parameters">
+      <div class="main-bmi-parameter-wrapper">
+       <p class="main-bmi-parameter-name">Рост</p>
+       <input type="number" class="main-bmi-parameter height" />
+      </div>
+      <div class="main-bmi-parameter-wrapper">
+       <p class="main-bmi-parameter-name">Вес</p>
+       <input type="number" class="main-bmi-parameter weight" />
+      </div>
+     </div>
+     <button class="main-bmi-calculate">Рассчитать</button>
+     <div class="main-bmi-result">
+      <p class="main-bmi-result-value"></p>
+      <p class="main-bmi-result-text"></p>
+     </div>
+    </div>
+    <div class="main-calories-wrapper inactive" data-page="calories">
+     <p class="main-calories-normal">Ваша норма:</p>
+     <div class="main-calories-inputs">
+      <div class="main-calories-input-wrapper">
+       <p class="main-calories-input-name">Завтрак</p>
+       <input type="text" class="main-calories-input breakfast" />
+      </div>
+      <div class="main-calories-input-wrapper">
+       <p class="main-calories-input-name">Обед</p>
+       <input type="text" class="main-calories-input lunch" />
+      </div>
+      <div class="main-calories-input-wrapper">
+       <p class="main-calories-input-name">Ужин</p>
+       <input type="text" class="main-calories-input dinner" />
+      </div>
+      <p class="main-calories-result"></p>
+      <button class="main-calories-calculate">Рассчитать</button>
+     </div>
+    </div>
+   </div>
+  </main>
+ </body>
+ <script src="./js/bmi/bmi.js"></script>
+ <script src="./js/tabs/tabs.js"></script>
+ <script src="./js/calories/calories.js"></script>
+</html>
