@@ -76,6 +76,7 @@ h6 {
  height: 100dvh;
 }
 .main-wrapper {
+ width: 100%;
  height: fit-content;
  padding: 30px;
  background: white;
@@ -123,4 +124,14 @@ h6 {
 }
 .inactive {
  display: none;
+}
+.main-calories-wrapper {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+.main-calories-inputs {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
 }
