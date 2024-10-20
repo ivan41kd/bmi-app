@@ -15,6 +15,41 @@
  <body>
   <main class="main">
    <div class="main-wrapper">
+    <div class="main-register">
+     <div class="main-register-inputs">
+      <div class="main-register-input-wrapper">
+       <p class="main-register-input-name">Никнейм</p>
+       <input type="text" class="main-register-input nickname" />
+      </div>
+      <div class="main-register-input-wrapper">
+       <p class="main-register-input-name">Пароль</p>
+       <input type="text" class="main-register-input password" />
+      </div>
+     </div>
+     <button class="main-register-button">Зарегистрироваться</button>
+    </div>
+    <div class="main-login">
+     <div class="main-login-inputs">
+      <div class="main-login-input-wrapper">
+       <p class="main-login-input-name">Никнейм</p>
+       <input type="text" class="main-login-input nickname" />
+      </div>
+      <div class="main-login-input-wrapper">
+       <p class="main-login-input-name">Пароль</p>
+       <input type="text" class="main-login-input password" />
+      </div>
+     </div>
+     <div class="main-login-checkbox-wrapper">
+      <input
+       type="checkbox"
+       class="main-login-remember"
+       id="remember"
+       name="remember"
+      />
+      <label for="remember">Запомнить меня</label>
+     </div>
+     <button class="main-login-button">Войти</button>
+    </div>
     <div class="main-tabs">
      <div class="main-tab active" data-tab="bmi">
       <p class="main-tab-name">BMI</p>
@@ -22,8 +57,14 @@
      <div class="main-tab" data-tab="calories">
       <p class="main-tab-name">Калории</p>
      </div>
+     <div class="main-tab" data-tab="advice">
+      <p class="main-tab-name">Советы</p>
+     </div>
+     <div class="main-tab" data-tab="workout">
+      <p class="main-tab-name">Тренировки</p>
+     </div>
     </div>
-    <div class="main-bmi-wrapper active" data-page="bmi">
+    <article class="main-bmi-wrapper active" data-page="bmi">
      <div class="main-bmi-age-wrapper">
       <p class="main-bmi-age">Возраст</p>
       <input type="number" class="main-bmi-age-input" />
@@ -60,14 +101,57 @@
        <p class="main-bmi-parameter-name">Вес</p>
        <input type="number" class="main-bmi-parameter weight" />
       </div>
+      <div class="main-bmi-levels-wrapper">
+       <div class="main-bmi-level">
+        <input
+         type="radio"
+         class="main-bmi-level-input"
+         id="one-level"
+         value="1.2"
+         name="level"
+         checked
+        />
+        <label for="one-level">Нет активности</label>
+       </div>
+       <div class="main-bmi-level">
+        <input
+         type="radio"
+         class="main-bmi-level-input"
+         id="second-level"
+         value="1.375"
+         name="level"
+        />
+        <label for="second-level">Легкая активность</label>
+       </div>
+       <div class="main-bmi-level">
+        <input
+         type="radio"
+         class="main-bmi-level-input"
+         id="third-level"
+         value="1.550"
+         name="level"
+        />
+        <label for="third-level">Средняя активность</label>
+       </div>
+       <div class="main-bmi-level">
+        <input
+         type="radio"
+         class="main-bmi-level-input"
+         id="fourth-level"
+         value="1.725"
+         name="level"
+        />
+        <label for="fourth-level">Высокая активность</label>
+       </div>
+      </div>
      </div>
      <button class="main-bmi-calculate">Рассчитать</button>
      <div class="main-bmi-result">
       <p class="main-bmi-result-value"></p>
       <p class="main-bmi-result-text"></p>
      </div>
-    </div>
-    <div class="main-calories-wrapper inactive" data-page="calories">
+    </article>
+    <article class="main-calories-wrapper inactive" data-page="calories">
      <p class="main-calories-normal">Ваша норма:</p>
      <div class="main-calories-inputs">
       <div class="main-calories-input-wrapper">
@@ -85,11 +169,120 @@
       <p class="main-calories-result"></p>
       <button class="main-calories-calculate">Рассчитать</button>
      </div>
-    </div>
+    </article>
+    <article class="main-advice-wrapper inactive" data-page="advice">
+     <h1 class="main-advice-title">
+      Будьте активны — двигайтесь больше, сидите меньше
+     </h1>
+     <p class="main-advice-text">
+      Поступление и расход энергии должны быть сбалансированы. Для поддержания
+      нормального обмена веществ и хорошего состояния здоровья обязательно нужно
+      двигаться и сокращать время, проведенное в течение дня в сидячем
+      положении, особенно за различными экранами.
+     </p>
+     <h1 class="main-advice-title">Ешьте больше овощей и фруктов</h1>
+     <p class="main-advice-text">
+      Овощи и фрукты богаты витаминами, минералами и антиоксидантами. Стремитесь
+      к тому, чтобы они занимали большую часть вашего рациона, особенно свежие и
+      сезонные продукты.
+     </p>
+
+     <h1 class="main-advice-title">Пейте больше воды</h1>
+     <p class="main-advice-text">
+      Вода жизненно важна для нормальной работы организма. Ежедневно выпивайте
+      достаточное количество воды, избегайте чрезмерного потребления сладких
+      напитков и соков.
+     </p>
+
+     <h1 class="main-advice-title">Контролируйте порции</h1>
+     <p class="main-advice-text">
+      Переедание может привести к набору веса и проблемам со здоровьем. Учитесь
+      контролировать размер порций и не переедать, даже если пища вкусная.
+     </p>
+
+     <h1 class="main-advice-title">Употребляйте больше клетчатки</h1>
+     <p class="main-advice-text">
+      Продукты с высоким содержанием клетчатки, такие как цельнозерновые,
+      бобовые и овощи, улучшают пищеварение и поддерживают здоровье кишечника.
+     </p>
+
+     <h1 class="main-advice-title">Ограничьте употребление сахара</h1>
+     <p class="main-advice-text">
+      Избыток сахара в рационе может способствовать набору веса и развитию
+      заболеваний, таких как диабет. Постарайтесь сократить количество
+      добавленного сахара в напитках и блюдах.
+     </p>
+    </article>
+    <article class="main-workout-wrapper inactive" data-page="workout">
+     <h1 class="main-workout-title">Программа тренировок на неделю</h1>
+
+     <h2 class="main-workout-day">День 1: Грудь и трицепс</h2>
+     <p class="main-workout-text">
+      <strong>Жим штанги лежа:</strong> 4 подхода по 8-12 повторений.<br />
+      <strong>Разводка гантелей на горизонтальной скамье:</strong> 3 подхода по
+      10-12 повторений.<br />
+      <strong>Отжимания на брусьях:</strong> 3 подхода до отказа.<br />
+      <strong>Французский жим с гантелями:</strong> 3 подхода по 10 повторений.
+     </p>
+
+     <h2 class="main-workout-day">День 2: Спина и бицепс</h2>
+     <p class="main-workout-text">
+      <strong>Подтягивания:</strong> 4 подхода до отказа.<br />
+      <strong>Тяга штанги в наклоне:</strong> 4 подхода по 8-10 повторений.<br />
+      <strong>Тяга блока к груди сидя:</strong> 3 подхода по 10-12
+      повторений.<br />
+      <strong>Сгибание рук с гантелями стоя:</strong> 3 подхода по 10-12
+      повторений.
+     </p>
+
+     <h2 class="main-workout-day">День 3: Ноги и плечи</h2>
+     <p class="main-workout-text">
+      <strong>Приседания со штангой:</strong> 4 подхода по 8-10 повторений.<br />
+      <strong>Выпады с гантелями:</strong> 3 подхода по 12 повторений на каждую
+      ногу.<br />
+      <strong>Жим штанги над головой:</strong> 4 подхода по 8-10 повторений.<br />
+      <strong>Подъем гантелей через стороны:</strong> 3 подхода по 10-12
+      повторений.
+     </p>
+
+     <h2 class="main-workout-day">День 4: Кардио и пресс</h2>
+     <p class="main-workout-text">
+      <strong>Бег на беговой дорожке:</strong> 30-40 минут с умеренной
+      интенсивностью.<br />
+      <strong>Подъем ног в висе:</strong> 3 подхода по 15 повторений.<br />
+      <strong>Планка:</strong> 3 подхода по 1-2 минуты.<br />
+      <strong>Скручивания на пресс:</strong> 3 подхода по 20 повторений.
+     </p>
+
+     <h2 class="main-workout-day">
+      День 5: Полный отдых или активное восстановление
+     </h2>
+     <p class="main-workout-text">
+      Занимайтесь легкой активностью: прогулка, йога, растяжка, плавание. Это
+      поможет восстановиться и улучшить гибкость.
+     </p>
+
+     <h2 class="main-workout-day">
+      День 6: Повторение первой тренировки (Грудь и трицепс)
+     </h2>
+     <p class="main-workout-text">
+      Повторите упражнения, сделанные в первый день, но можете немного увеличить
+      вес или количество повторений для прогресса.
+     </p>
+
+     <h2 class="main-workout-day">День 7: Отдых</h2>
+     <p class="main-workout-text">
+      Дайте мышцам полностью восстановиться, пейте много воды и следите за
+      питанием.
+     </p>
+    </article>
    </div>
   </main>
  </body>
  <script src="./js/bmi/bmi.js"></script>
  <script src="./js/tabs/tabs.js"></script>
  <script src="./js/calories/calories.js"></script>
+ <script src="./js/authentication/authentication.js"></script>
+ <script src="./js/register/register.js"></script>
+ <script src="./js/login/login.js"></script>
 </html>

@@ -5,9 +5,13 @@ const age = document.querySelector('.main-bmi-age-input');
 const calcButton = document.querySelector('.main-bmi-calculate');
 const caloriesNormal = document.querySelector('.main-calories-normal');
 const sexInput = document.querySelectorAll('.main-bmi-sex-input');
+const levelInput = document.querySelectorAll('.main-bmi-level-input');
+
+const localData = localStorage.getItem('user');
+const userData = JSON.parse(localData);
 
 const checkValues = (element) => {
- if (element != '' && element.classList.contains('invalid')) {
+ if (element != '' && !element.classList.contains('invalid')) {
   element.classList.remove('invalid');
   return true;
  } else {
@@ -46,30 +50,43 @@ const checkResult = (result) => {
 const renderResult = (bmi, result) => {
  const resultValue = document.querySelector('.main-bmi-result-value');
  const resultText = document.querySelector('.main-bmi-result-text');
+
  resultValue.textContent = bmi;
  resultText.textContent = result;
 };
-const calcNormalCalories = (height, weight, age, sex) => {
+const calcNormalCalories = (height, weight, age, sex, level) => {
  let currentSex = null;
+ let levelValue = null;
  if (height.value != '' && weight.value != '' && age.value != '') {
-  const sexChecked = sex.forEach((chk) => {
+  sex.forEach((chk) => {
    if (chk.checked) {
     currentSex = chk;
    }
   });
+  level.forEach((chk) => {
+   if (chk.checked) {
+    levelValue = chk.value;
+   }
+  });
+  userData.forEach((user) => {
+   user.weight = parseFloat(weight.value);
+   user.height = parseFloat(height.value);
+   user.age = age.value;
+  });
+  localStorage.setItem('user', JSON.stringify(userData));
   if (currentSex.value == 'male') {
    return (
     10 * parseFloat(weight.value) +
     6.25 * parseFloat(height.value) -
     5 * age.value +
-    5
+    5 * levelValue
    );
   } else {
    return (
     10 * parseFloat(weight.value) +
     6.25 * parseFloat(height.value) -
     5 * age.value +
-    161
+    161 * levelValue
    );
   }
  }
@@ -85,5 +102,31 @@ calcButton.addEventListener('click', () => {
   checkResult(calculateBMI(height, weight))
  );
 
- caloriesNormal.textContent = calcNormalCalories(height, weight, age, sexInput);
+ caloriesNormal.textContent = calcNormalCalories(
+  height,
+  weight,
+  age,
+  sexInput,
+  levelInput
+ );
 });
+if (userData[0].weight && userData[0].height && userData[0].age) {
+ age.value = userData[0].age;
+
+ height.value = userData[0].height;
+ weight.value = userData[0].weight;
+ checkValues(height);
+ checkValues(weight);
+ calculateBMI(height, weight);
+ renderResult(
+  calculateBMI(height, weight),
+  checkResult(calculateBMI(height, weight))
+ );
+ caloriesNormal.textContent = calcNormalCalories(
+  height,
+  weight,
+  age,
+  sexInput,
+  levelInput
+ );
+}

@@ -1,29 +1,27 @@
 const tabs = document.querySelectorAll('.main-tab');
-const bmiWrapper = document.querySelector('.main-bmi-wrapper');
-const caloriesWrapper = document.querySelector('.main-calories-wrapper');
+const articles = document.querySelectorAll('article');
 
+// Добавляем событие клика для каждой вкладки
 tabs.forEach((tab) => {
  tab.addEventListener('click', () => {
+  // Удаляем класс 'active' у всех вкладок
+  tabs.forEach((t) => t.classList.remove('active'));
+
+  // Добавляем класс 'active' текущей вкладке
   tab.classList.add('active');
-  if (tab.dataset.tab == 'bmi') {
-   caloriesWrapper.classList.remove('active');
-   caloriesWrapper.classList.add('inactive');
-   bmiWrapper.classList.remove('inactive');
-   bmiWrapper.classList.add('active');
-  } else {
-   bmiWrapper.classList.remove('active');
-   bmiWrapper.classList.add('inactive');
-   caloriesWrapper.classList.remove('inactive');
-   caloriesWrapper.classList.add('active');
-  }
- });
- tabs.forEach((tab2) => {
-  tab2.addEventListener('click', () => {
-   if (tab2 != tab)
-    tab.addEventListener('click', () => {
-     tab2.classList.remove('active');
-     tab.classList.add('active');
-    });
+
+  // Проверяем все статьи
+  articles.forEach((article) => {
+   // Если dataset.tab у вкладки совпадает с dataset.page у статьи
+   if (tab.dataset.tab === article.dataset.page) {
+    // Эта статья становится активной
+    article.classList.remove('inactive');
+    article.classList.add('active');
+   } else {
+    // Остальные статьи становятся неактивными
+    article.classList.remove('active');
+    article.classList.add('inactive');
+   }
   });
  });
 });
