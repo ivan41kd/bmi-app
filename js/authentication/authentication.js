@@ -5,8 +5,7 @@ const tabsWrapper = document.querySelector('.main-tabs');
 
 if (!isAuthenticatedSession && !isAuthenticatedLocal) {
  tabsWrapper.remove();
- caloriesWrapper.remove();
- bmiWrapper.remove();
+ articles.forEach((article) => article.remove());
 } else {
  document.querySelector('.main-login').remove();
 }

@@ -110,7 +110,7 @@ calcButton.addEventListener('click', () => {
   levelInput
  );
 });
-if (userData[0].weight && userData[0].height && userData[0].age) {
+if (userData && userData[0].weight && userData[0].height && userData[0].age) {
  age.value = userData[0].age;
 
  height.value = userData[0].height;
